@@ -38,6 +38,8 @@
          * **execute the ansible cli command**:
            * ```ansible-playbook [playbook_filename] -i [inventory filename]```
          * **return message to network engineer**: based on the return information from executing the ansible playbook, appropriate return messages will be sent back to the network engineer consuming the api
+ * **ansible server**:
+   * the ansible server will be used by the endpoint function to configure the device based configuration properties provided by the network engineer in the request
       
 ## use case
 * **task**: configure OSPF on nexus device
