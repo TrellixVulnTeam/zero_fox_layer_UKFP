@@ -18,9 +18,9 @@ class GetDeviceConfig(Resource):
         return {'message': 'place device config here'}
 
 class SendDeviceConfig(Resource):
-    def put(self):
-        data = request.get_json()
-        return {'message sent': data['config']}
+    def post(self):
+        form_data = request.form['new_dev_hostname']
+        return {'message sent': form_data}
 
 api.add_resource(GetDeviceConfig, '/cisco/ios/get_device_config')
 api.add_resource(SendDeviceConfig, '/cisco/ios/send_device_config')
