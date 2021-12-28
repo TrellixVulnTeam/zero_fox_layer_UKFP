@@ -1,8 +1,10 @@
 __pycache__/
 zero_fox_layer/
+pyvenv.cfg
 zero_fox_layer.code-workspace
 .vscode/
 change_ios_dev_hostname.conf
+zero_fox_layer/*.cfg
 
 
 
