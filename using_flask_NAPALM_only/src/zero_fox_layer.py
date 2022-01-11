@@ -1,7 +1,4 @@
-# %% [markdown]
-# #### import libraries/modules
 
-# %%
 from flask import Flask, request
 from flask_restful import Resource, Api
 from napalm.base import get_network_driver
@@ -68,33 +65,6 @@ api.add_resource(SendDeviceConfig, '/cisco/ios/send_device_config')
 api.add_resource(ConfigDevHostname, '/cisco/ios/chg_dev_hostname')
 api.add_resource(ConfigIntfDesc, '/cisco/ios/conf_intf_desc')
 
-       
-
-# %% [markdown]
-# #### create the endpoints and their functions
-# * endpoints:
-#   * **cisco commands**
-#   * **juniper commands**
-#   * **arista commands**
-
-# %%
-# cisco section
-##---change hostname of IOS router
-##---command
-####---hostname [new_hostname]
-
-# class TestClass():
-#     def __init__(self, new_dev_name):
-#         self.new_dev_name = new_dev_name
-    
-
-# class change_device_hostnameModle(BaseModel):
-#     texts = list
-
-
-
-
-    # pass
 ###################################
 ###################################
 
