@@ -56,8 +56,9 @@ def create_config_file_to_chg_intf_des(func):
         # use Template module to create a config file to conf intf desc
         t = Template('interface $intfPH \n description $descPH')
         command = t.substitute(intfPH=kwargs['intf_value'], descPH=kwargs['desc_value'])
-        rel_path = '/using_flask_NAPALM_only/libs/test_config.conf'
-        path = os.getcwd() + rel_path
+        # rel_path = '/using_flask_NAPALM_only/libs/test_config.conf'
+        # path = os.getcwd() + rel_path
+        path = '/home/glitch/Documents/projects/zero_fox_layer/using_flask_NAPALM_only/libs/test_config.conf'
         with open(path, 'w') as file1:
             entry = f'{command}\n'
             file1.write(entry)

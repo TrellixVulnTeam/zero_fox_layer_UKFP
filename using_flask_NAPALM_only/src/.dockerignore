@@ -1,0 +1,7 @@
+./libs/__pycache__
+./libs/*.conf
+# ./dev_config_files/
+# ./docker_data/
+# ./napalm_dev_mock_driver_related/
+# ./scrap_paper/
+# lstat /home/glitch/.local/share/Trash/files/docker_data/Dockerfile
