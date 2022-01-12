@@ -56,9 +56,9 @@ def create_config_file_to_chg_intf_des(func):
         # use Template module to create a config file to conf intf desc
         t = Template('interface $intfPH \n description $descPH')
         command = t.substitute(intfPH=kwargs['intf_value'], descPH=kwargs['desc_value'])
-        # rel_path = '/using_flask_NAPALM_only/libs/test_config.conf'
-        # path = os.getcwd() + rel_path
-        path = '/home/glitch/Documents/projects/zero_fox_layer/using_flask_NAPALM_only/libs/test_config.conf'
+        rel_path = '/libs/test_config.conf'
+        path = os.getcwd() + rel_path
+        # path = '/home/glitch/Documents/projects/zero_fox_layer/using_flask_NAPALM_only/libs/test_config.conf'
         with open(path, 'w') as file1:
             entry = f'{command}\n'
             file1.write(entry)
@@ -100,18 +100,28 @@ def conf_des_to_interface(intf_value, desc_value):
     with driver(ios_driver_args['host'], ios_driver_args['uname'], ios_driver_args['pword'], optional_args=optional_args) as device:
         device.open()
         # rel_path = '/using_flask_NAPALM_only/libs/conf_intf_desc.conf'
-        # path = os.getcwd() + rel_path
-        device.load_merge_candidate(filename='/home/glitch/Documents/projects/zero_fox_layer/using_flask_NAPALM_only/libs/test_config.conf')
-
-        diff = device.compare_config()
+    
+        rel_path = '/libs/test_config.conf'
+        path = os.getcwd() + rel_path
+        device.load_merge_candidate(filename=path)
+    
+        # diff = device.compare_config()
         # device.commit_config()
-
-        print(diff)
-        device.commit_config()
-        device.close()
+        
+        
+        # print(diff)
+        try:
+            device.commit_config()
+            device.close()
+        except ConnectionException:
+            # device.close()
+            message = 'no connectivity to device'
+            return message
+        
         # pwd = os.getcwd()
         resp = f'the device was config\'ed & committed'
         return resp
+        
 
 if __name__ == '__main__':
     intf_value_test = 'f0/1'
